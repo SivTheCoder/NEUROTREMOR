@@ -117,7 +117,7 @@ function Technical() {
           })}
         </div>
 
-        <div className="bg-gradient-to-r from-slate-800/50 to-blue-900/50 backdrop-blur border border-slate-700 p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden">
+        {/* <div className="bg-gradient-to-r from-slate-800/50 to-blue-900/50 backdrop-blur border border-slate-700 p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent"></div>
           <div className="relative z-10">
             <h3 className="text-3xl font-bold text-white mb-12 text-center">
@@ -173,6 +173,93 @@ function Technical() {
                 <div>
                   <div className="text-2xl font-black text-cyan-400">₹2K</div>
                   <div className="text-xs text-gray-400 mt-1">Cost</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+        <div className="bg-gradient-to-r from-slate-800/50 to-blue-900/50 backdrop-blur border border-slate-700 p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent"></div>
+          <div className="relative z-10">
+            <h3 className="text-3xl font-bold text-white mb-12 text-center">
+              Real-Time Performance
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="group">
+                <div className="text-xs text-gray-400 mb-4 font-semibold tracking-widest">BEFORE TREATMENT</div>
+                <div className="bg-slate-900/50 backdrop-blur rounded-2xl p-6 h-40 flex items-center border border-slate-700 group-hover:border-red-500/50 transition-colors overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-transparent to-red-500/5"></div>
+                  <svg viewBox="0 0 400 80" className="w-full h-full relative z-10">
+                    <defs>
+                      <linearGradient id="redGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#ef4444" stopOpacity="0.3"/>
+                        <stop offset="50%" stopColor="#ef4444" stopOpacity="1"/>
+                        <stop offset="100%" stopColor="#ef4444" stopOpacity="0.3"/>
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M0 40 Q10 20, 20 40 T40 40 Q50 60, 60 40 T80 40 Q90 25, 100 40 T120 40 Q130 55, 140 40 T160 40 Q170 30, 180 40 T200 40 Q210 50, 220 40 T240 40 Q250 28, 260 40 T280 40 Q290 52, 300 40 T320 40 Q330 35, 340 40 T360 40 Q370 45, 380 40 L400 40"
+                      stroke="url(#redGlow)"
+                      strokeWidth="3"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <animate
+                        attributeName="d"
+                        dur="2s"
+                        repeatCount="indefinite"
+                        values="
+                          M0 40 Q10 20, 20 40 T40 40 Q50 60, 60 40 T80 40 Q90 25, 100 40 T120 40 Q130 55, 140 40 T160 40 Q170 30, 180 40 T200 40 Q210 50, 220 40 T240 40 Q250 28, 260 40 T280 40 Q290 52, 300 40 T320 40 Q330 35, 340 40 T360 40 Q370 45, 380 40 L400 40;
+                          M0 40 Q10 58, 20 40 T40 40 Q50 22, 60 40 T80 40 Q90 53, 100 40 T120 40 Q130 27, 140 40 T160 40 Q170 48, 180 40 T200 40 Q210 32, 220 40 T240 40 Q250 56, 260 40 T280 40 Q290 26, 300 40 T320 40 Q330 50, 340 40 T360 40 Q370 33, 380 40 L400 40;
+                          M0 40 Q10 20, 20 40 T40 40 Q50 60, 60 40 T80 40 Q90 25, 100 40 T120 40 Q130 55, 140 40 T160 40 Q170 30, 180 40 T200 40 Q210 50, 220 40 T240 40 Q250 28, 260 40 T280 40 Q290 52, 300 40 T320 40 Q330 35, 340 40 T360 40 Q370 45, 380 40 L400 40
+                        "
+                      />
+                    </path>
+                  </svg>
+                </div>
+                <div className="flex items-center gap-2 mt-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                  <div className="text-sm font-semibold text-red-400">High Amplitude Tremor</div>
+                </div>
+              </div>
+              <div className="group">
+                <div className="text-xs text-gray-400 mb-4 font-semibold tracking-widest">AFTER: WITH NEUROTREMOR GLOVE</div>
+                <div className="bg-slate-900/50 backdrop-blur rounded-2xl p-6 h-40 flex items-center border border-slate-700 group-hover:border-cyan-500/50 transition-colors overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-cyan-500/5"></div>
+                  <svg viewBox="0 0 400 80" className="w-full h-full relative z-10">
+                    <defs>
+                      <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.3"/>
+                        <stop offset="50%" stopColor="#06b6d4" stopOpacity="1"/>
+                        <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.3"/>
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M0 40 Q10 35, 20 40 T40 40 Q50 45, 60 40 T80 40 Q90 37, 100 40 T120 40 Q130 43, 140 40 T160 40 Q170 38, 180 40 T200 40 Q210 42, 220 40 T240 40 Q250 39, 260 40 T280 40 Q290 41, 300 40 T320 40 Q330 39, 340 40 T360 40 Q370 41, 380 40 L400 40"
+                      stroke="url(#cyanGlow)"
+                      strokeWidth="3"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <animate
+                        attributeName="d"
+                        dur="2s"
+                        repeatCount="indefinite"
+                        values="
+                          M0 40 Q10 35, 20 40 T40 40 Q50 45, 60 40 T80 40 Q90 37, 100 40 T120 40 Q130 43, 140 40 T160 40 Q170 38, 180 40 T200 40 Q210 42, 220 40 T240 40 Q250 39, 260 40 T280 40 Q290 41, 300 40 T320 40 Q330 39, 340 40 T360 40 Q370 41, 380 40 L400 40;
+                          M0 40 Q10 43, 20 40 T40 40 Q50 37, 60 40 T80 40 Q90 42, 100 40 T120 40 Q130 38, 140 40 T160 40 Q170 41, 180 40 T200 40 Q210 39, 220 40 T240 40 Q250 42, 260 40 T280 40 Q290 38, 300 40 T320 40 Q330 41, 340 40 T360 40 Q370 39, 380 40 L400 40;
+                          M0 40 Q10 35, 20 40 T40 40 Q50 45, 60 40 T80 40 Q90 37, 100 40 T120 40 Q130 43, 140 40 T160 40 Q170 38, 180 40 T200 40 Q210 42, 220 40 T240 40 Q250 39, 260 40 T280 40 Q290 41, 300 40 T320 40 Q330 39, 340 40 T360 40 Q370 41, 380 40 L400 40
+                        "
+                      />
+                    </path>
+                  </svg>
+                </div>
+                <div className="flex items-center gap-2 mt-4">
+                  <div className="w-3 h-3 rounded-full bg-cyan-500 animate-pulse"></div>
+                  <div className="text-sm font-semibold text-cyan-400">46% Reduction | 38ms Latency</div>
                 </div>
               </div>
             </div>
