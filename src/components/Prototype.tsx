@@ -1,4 +1,4 @@
-import { Lightbulb, Wrench, TestTube, PlayCircle, FlaskConical } from 'lucide-react';
+import { Lightbulb, Wrench, TestTube, PlayCircle, FlaskConical } from 'lucide-react'; // PlayCircle still used in prototype cards
 import { useEffect, useRef, useState } from 'react';
 
 function Prototype() {
@@ -180,16 +180,17 @@ function Prototype() {
               </div>
               <p className="text-slate-500 text-xs mt-4">* Preliminary bench testing. Formal clinical validation in progress.</p>
             </div>
-            <div className="w-full md:w-96 aspect-video bg-slate-900 rounded-xl flex items-center justify-center border border-cyan-500/30 overflow-hidden">
-            <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/IIARF8aOjas"
-            title="NeuroTremor Glove Demo — Viksit Bharat Buildathon 2025"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-            ></iframe>
+            <div className="w-full md:w-96 aspect-video rounded-xl overflow-hidden border border-cyan-500/30 flex-shrink-0">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/IIARF8aOjas"
+                title="NeuroTremor Glove — Viksit Bharat Buildathon 2025"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>
