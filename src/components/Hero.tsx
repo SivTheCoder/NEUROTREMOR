@@ -1,4 +1,4 @@
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 function Hero() {
@@ -13,7 +13,6 @@ function Hero() {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
@@ -23,70 +22,103 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 overflow-hidden">
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute inset-0 neural-network-bg"></div>
-      </div>
-
-      <div
-        className="absolute w-96 h-96 bg-cyan-500 rounded-full opacity-10 blur-3xl"
+    <section className="relative min-h-screen flex items-center justify-center bg-[#040b14] overflow-hidden">
+      {/* Ambient grid */}
+      <div className="absolute inset-0 opacity-20"
         style={{
-          left: `${mousePosition.x - 192}px`,
-          top: `${mousePosition.y - 192}px`,
-          transition: 'all 0.3s ease-out'
+          backgroundImage: `linear-gradient(rgba(6,182,212,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.15) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
         }}
-      ></div>
+      />
 
-      <div className="absolute top-20 right-20 w-40 h-40 border border-cyan-500/20 rounded-full opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-32 left-10 w-32 h-32 border border-blue-500/20 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+      {/* Mouse glow */}
+      <div
+        className="absolute w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          left: `${mousePosition.x - 250}px`,
+          top: `${mousePosition.y - 250}px`,
+          background: 'radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%)',
+          transition: 'all 0.4s ease-out'
+        }}
+      />
 
-      <div className={`relative z-10 text-center px-6 max-w-5xl transition-all duration-1000 transform ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="inline-block mb-6 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full backdrop-blur-sm">
-          <span className="text-cyan-300 text-sm font-semibold tracking-widest">VIKSIT BHARAT BUILDATHON 2025</span>
+      {/* Static glows */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/8 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-600/8 rounded-full blur-3xl" />
+
+      {/* Pulse rings */}
+      <div className="absolute top-16 right-16 w-48 h-48 border border-cyan-500/15 rounded-full animate-pulse" />
+      <div className="absolute bottom-24 left-8 w-32 h-32 border border-blue-500/15 rounded-full animate-pulse" style={{ animationDelay: '0.7s' }} />
+      <div className="absolute top-1/2 right-8 w-20 h-20 border border-cyan-400/10 rounded-full animate-pulse" style={{ animationDelay: '1.4s' }} />
+
+      <div className={`relative z-10 text-center px-6 max-w-5xl transition-all duration-1000 transform ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-cyan-500/8 border border-cyan-500/25 rounded-full backdrop-blur-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="text-cyan-300/90 text-xs font-semibold tracking-[0.2em]">PATENT PENDING · INDIA</span>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-tight tracking-tight">
-          <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">NeuroTremor</span>
-          <br />
-          <span>Glove</span>
+        {/* Title */}
+        <h1 className="text-6xl md:text-8xl font-black text-white mb-4 leading-[0.9] tracking-tighter">
+          <span
+            className="block"
+            style={{ background: 'linear-gradient(135deg, #67e8f9 0%, #38bdf8 50%, #818cf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+          >
+            NeuroTremor
+          </span>
+          <span className="block text-white/90">Glove</span>
         </h1>
 
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-cyan-400"></div>
-          <p className="text-cyan-300 font-semibold text-sm tracking-widest">INNOVATION</p>
-          <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-cyan-400"></div>
+        {/* Divider */}
+        <div className="flex items-center justify-center gap-4 my-7">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400/60" />
+          <span className="text-cyan-300/70 text-xs font-bold tracking-[0.3em]">INTELLIGENT TREMOR SUPPRESSION</span>
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-cyan-400/60" />
         </div>
 
-        <p className="text-3xl md:text-4xl text-white font-light mb-8 leading-relaxed">
+        {/* Tagline */}
+        <p className="text-3xl md:text-4xl text-white/90 font-light mb-6 leading-relaxed">
           <span className="font-semibold text-cyan-300">Restoring Steadiness.</span> Restoring Dignity.
         </p>
-        <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-          A smart neuro-mechanical glove that senses involuntary tremors and cancels them in real time. Engineered for India. Designed for humanity.
+
+        {/* Description */}
+        <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+          A hybrid passive-active wearable glove that detects and suppresses pathological hand tremors in real time — engineered for India, designed for every patient who deserves independence.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        {/* Spec pills */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          {[
+            { label: '<40ms Latency Budget' },
+            { label: '4–12 Hz Tremor Band' },
+            { label: 'Dual Hardware Tiers' },
+            { label: '5-Module Architecture' },
+          ].map((item, i) => (
+            <div key={i} className="px-4 py-1.5 bg-slate-800/60 border border-slate-600/50 rounded-full text-slate-300 text-sm font-medium backdrop-blur-sm">
+              {item.label}
+            </div>
+          ))}
+        </div>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={scrollToNext}
-            className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 overflow-hidden"
+            className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 hover:scale-105 shadow-xl shadow-cyan-500/30"
           >
-            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
-            <span className="relative">Explore the Innovation</span>
-            <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform relative" />
+            <span>Explore the Innovation</span>
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
           </button>
           <button
             onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold border-2 border-cyan-500/50 text-cyan-300 hover:border-cyan-400 hover:text-cyan-200 transition-all duration-300 hover:bg-cyan-500/10"
+            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold border border-cyan-500/40 text-cyan-300 hover:border-cyan-400 hover:text-white transition-all duration-300 hover:bg-cyan-500/10"
           >
-            <span>Join Us</span>
+            <span>Partner With Us</span>
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>
-
-      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
-        </div>
-      </div> */}
     </section>
   );
 }
